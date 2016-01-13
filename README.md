@@ -1,6 +1,6 @@
 Deployment Cycle Interface
 
-https://codeship.com/projects/8d003370-9bbb-0133-8244-4af0faf5a893/status?branch=master
+[ ![Codeship Status for mrlevitas/deployment_cycle](https://codeship.com/projects/8d003370-9bbb-0133-8244-4af0faf5a893/status?branch=master)](https://codeship.com/projects/126906)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
