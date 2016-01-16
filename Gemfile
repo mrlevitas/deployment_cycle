@@ -21,6 +21,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'database_cleaner'
   gem 'dotenv-rails'
+  gem "devise"
 end
 
 group :test do
