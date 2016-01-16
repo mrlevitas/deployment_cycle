@@ -1,0 +1,12 @@
+<div class="review-title small-8 small-centered column text-center">
+  <h1>Your Profile Information</h1>
+  <%= image_tag "#{@user.profile_photo}", size: "160x160" %>
+  <ul class="text-center">
+    <li class="no-bullet"><%= @user.first_name %></li>
+    <li class="no-bullet"><%= @user.last_name %></li>
+    <li class="no-bullet"><%= @user.email %></li>
+  </ul>
+
+  <div> <%= button_to 'Update', edit_user_registration_path, method: :get, class: "button tiny" %></div>
+
+</div>
