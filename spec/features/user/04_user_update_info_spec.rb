@@ -5,6 +5,7 @@ feature 'update user information', %{
   I want to update my information
   So that I can keep my profile up to date
   } do
+
   # ACCEPTANCE CRITERIA
   # * I can update a user's email address
   # * I can update a user's password

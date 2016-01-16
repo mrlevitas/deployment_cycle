@@ -5,6 +5,7 @@ feature 'delete account', %{
   I want to delete my account
   So that my information is no longer retained by the app
   } do
+
   # ACCEPTANCE CRITERIA
   # * if i am signed in, i have an option to go to user show page
   # * from there I can choose to delete my account

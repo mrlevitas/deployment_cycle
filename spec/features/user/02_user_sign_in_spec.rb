@@ -5,11 +5,12 @@ feature 'sign in', %{
   I want to sign in
   So that I can post items and review them
   } do
-    # ACCEPTANCE CRITERIA
-    # * I must enter a user's email address
-    # * I must enter a user's password
-    # * If I do not perform the above, I get an error message
-    # * If I specify valid information, I sign in to my account and am authenticated
+
+  # ACCEPTANCE CRITERIA
+  # * I must enter a user's email address
+  # * I must enter a user's password
+  # * If I do not perform the above, I get an error message
+  # * If I specify valid information, I sign in to my account and am authenticated
 
   scenario 'an existing user specifies a valid email and password' do
     user = FactoryGirl.create(:user)
