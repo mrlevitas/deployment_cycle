@@ -5,50 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Deployment Diagram" %></title>
-
     <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <nav class="top-bar" data-topbar role="navigation">
-      <ul class="title-area">
-
-         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <!-- <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li> -->
-      </ul>
-
-      <section class="top-bar-section">
-        <!-- Right Nav Section -->
-        <ul class="right">
-          <!-- <li><a href="#">Button</a></li> -->
-
-
-          <li class="has-dropdown">
-            <% if user_signed_in? %>
-              <a href="#">
-                <% unless current_user.profile_photo.nil? %>
-                  <%= image_tag "#{current_user.profile_photo}", size: "30x30" %>
-                <% end %>
-                <%= current_user.email %>
-              </a>
-              <ul class="dropdown">
-                <li><%= link_to "My profile", user_path(current_user) %></li>
-                <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-                <% if current_user.admin? %>
-                <li> <%= link_to "Admin", '#' %> </li>
-                <% end %>
-              </ul>
-            <% else %>
-            <a href="#">Account</a>
-              <ul class="dropdown">
-                <li><%= link_to 'Sign Up', new_user_registration_path  %></li>
-                <li><%= link_to 'Sign In', new_user_session_path %></li>
-              </ul>
-            <% end %>
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h2><a href="/">Deployment Diagrams</a></h2>
           </li>
+           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+          <!-- <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li> -->
         </ul>
+
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <!-- <li><a href="#">Button</a></li> -->
+
+
+            <li class="has-dropdown">
+              <% if user_signed_in? %>
+                <a href="#">
+                  <% unless current_user.profile_photo.nil? %>
+                    <%= image_tag "#{current_user.profile_photo}", size: "30x30" %>
+                  <% end %>
+                  <%= current_user.email %>
+                </a>
+                <ul class="dropdown">
+                  <li><%= link_to "My profile", user_path(current_user) %></li>
+                  <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+                  <% if current_user.admin? %>
+                  <li> <%= link_to "Admin", '#' %> </li>
+                  <% end %>
+                </ul>
+              <% else %>
+              <a href="#">Account</a>
+                <ul class="dropdown">
+                  <li><%= link_to 'Sign Up', new_user_registration_path  %></li>
+                  <li><%= link_to 'Sign In', new_user_session_path %></li>
+                </ul>
+              <% end %>
+            </li>
+          </ul>
+
+          <!-- Left Nav Section -->
+          <ul class="left">
+
+          </ul>
 
         <!-- Left Nav Section -->
         <ul class="left">
@@ -56,9 +63,9 @@
         </ul>
 
 
+
       </section>
     </nav>
-
 
     <div id="flash-div" class="text-center flash-alert">
       <% flash.each do |key, value| %>
