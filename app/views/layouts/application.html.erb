@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
+    <title><%= content_for?(:title) ? yield(:title) : "Deployment Diagram" %></title>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -13,12 +12,8 @@
   </head>
 
   <body>
-
       <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
-          <li class="name">
-            <h2><a href="/">Deployment Diagrams</a></h2>
-          </li>
            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <!-- <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li> -->
         </ul>
@@ -54,31 +49,42 @@
             </li>
           </ul>
 
-          <!-- Left Nav Section -->
-          <ul class="left">
-
-          </ul>
-
-
-        </section>
-      </nav>
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <h2><a href="/">Deployment Diagrams</a></h2>
+        </ul>
 
 
-      <div id="flash-div" class="text-center flash-alert">
-        <% flash.each do |key, value| %>
-          <div id='flash-messages' class="alert-box">
-            <% if value.class == Array %>
-              <% value.each do |val| %>
-                <%= val %><br>
-              <% end %>
-            <% else %>
-              <%= value %>
+
+      </section>
+    </nav>
+
+    <div id="flash-div" class="text-center flash-alert">
+      <% flash.each do |key, value| %>
+        <div id='flash-messages' class="alert-box">
+          <% if value.class == Array %>
+            <% value.each do |val| %>
+              <%= val %><br>
             <% end %>
-          </div>
-        <% end %>
+          <% else %>
+            <%= value %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+  <%= yield %>
+
+  <div class="footer">
+      <!-- <div class="leaf">
+      </div> -->
+      <div class="row">
+        <div class="small-12 columns">
+          <h4 class="slogan">Deployment Diagrams</h4>
+          <p class="copywrite">Copyright not copypwritten © mrlevitas 2016</p>
+        </div>
       </div>
+    </div>
 
-    <%= yield %>
-
-    </body>
-    </html>
+  </body>
+  </html>
