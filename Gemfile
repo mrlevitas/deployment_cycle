@@ -8,7 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'foundation-rails'
+gem 'foundation-rails', '5.5.3.2'
 
 group :development, :test do
   gem 'pry-rails'
