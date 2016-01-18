@@ -5,7 +5,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lora);
 //
 $font-stack: 'Mako', sans-serif;
-
+@import "colors";
 // Table of Contents
 // Foundation Settings
 
@@ -120,13 +120,14 @@ $include-html-global-classes: $include-html-classes;
 
 // We use these as default colors throughout
 // $primary-color: #008CBA;
-$primary-color: #F35F55; //  pastel-red
+$primary-color: #F07464; //  pastel-red
 // $secondary-color: #e7e7e7;
 $secondary-color: #335650; //dark-green
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
+
 
 // We use these to control various global styles
 // $body-bg: $white;
@@ -1404,9 +1405,9 @@ $button-bg-color: $light-green;
 
 // 34. Top Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
-$secondary-color: $dark-green; // dark-green
-$secondary-background-color: $light-green; // light-green
-$hover-color: $light-brown; //light-brown
+$secondary-color: $navy-blue; 
+$secondary-background-color: $dark-grey;
+$hover-color: $pastel-grey;
 
 // $include-html-top-bar-classes: $include-html-classes;
 

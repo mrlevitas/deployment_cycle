@@ -1,5 +1,9 @@
 @import "colors";
 @import "foundation_and_overrides";
+@import url(https://fonts.googleapis.com/css?family=Mako);
+@import url(https://fonts.googleapis.com/css?family=Lora);
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -17,6 +21,39 @@
  *= require foundation_and_overrides
 
  */
+
+
+ // @mixin vertical-align {
+ //   position: relative;
+ //   top: 50%;
+ //   -webkit-transform: translateY(-50%);
+ //   -ms-transform: translateY(-50%);
+ //   transform: translateY(-50%);
+ // }
+
+
+ .pad-vert {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.box-background{
+  background-color: $pastel-grey;
+}
+
+// .logo-right{
+//   display: inline-block;
+//   vertical-align: middle;
+//   width: 50%;
+//  //  @include vertical-align;
+// }
+//
+// .time-butt{
+//   display: inline-block;
+//   vertical-align: middle;
+//   width: 50%;
+//   // @include vertical-align;
+// }
  .top{
    background: url(https://dl.dropboxusercontent.com/u/18396109/gray_background.jpg) no-repeat center center;
    -moz-background-size:100% 100%;
@@ -24,18 +61,21 @@
  background-size: cover;
 
 
- width: 50%;
- height: 50%;
- overflow: auto;
- margin: auto;
- position: absolute;
- top: 0; left: 0; bottom: 0; right: 0;
+   .logo-right{
+     display: inline-block;
+     vertical-align: middle;
+     width: 50%;
+    //  @include vertical-align;
+  }
 
- }
+  .time-butt{
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    // @include vertical-align;
+  }
 
-.timeline-and-logo{
-
-position: relative;
+}  // position: relative;
 
   // height: 50%;
   // position: relative;
@@ -44,13 +84,12 @@ position: relative;
   // width: 100%;
 
 
-}
+
 
 .image-container{
-  font-size: 0;
-  text-align: center;
-  width: 350px;  /* Container's dimensions */
-  height: 400px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
 }
 
 .timeline-image{
@@ -63,11 +102,6 @@ position: relative;
 
 
 }
-
- @import "colors";
- @import "foundation_and_overrides";
- @import url(https://fonts.googleapis.com/css?family=Mako);
- @import url(https://fonts.googleapis.com/css?family=Lora);
 
  $font-stack: 'Mako', sans-serif;
 
@@ -87,17 +121,17 @@ position: relative;
  $secondary-background-color: $light-green; // light-green
  // in overrides
  $primary-color: #ffffff; //  pastel-red
- $secondary-color: #335650; //dark-green
-$gray-background: #717171;
+ $secondary-color: $navy-blue; //dark-green
+
  // Styles
  body {
-   background-color: $gray-background;
+   background-color: $dark-grey;
    font-family: $font-stack;
    font-weight: normal;
  }
 
  a {
-   color: $white;
+   color: $mustard-yellow;
  }
 
  // img {
@@ -105,7 +139,7 @@ $gray-background: #717171;
  // }
  //
  a:hover, a:focus {
-   color: $dark-green;
+   color: $mustard-yellow;
  }
 
  .flash-alert {
@@ -222,7 +256,7 @@ $gray-background: #717171;
  }
 
  .button {
-   background-color: $pastel-orange;
+   background-color: $pastel-red;
  }
 
  .button.alert {
@@ -246,13 +280,7 @@ $gray-background: #717171;
    }
  }
 
- @mixin vertical-align {
-   position: relative;
-   top: 50%;
-   -webkit-transform: translateY(-50%);
-   -ms-transform: translateY(-50%);
-   transform: translateY(-50%);
- }
+
 
  .leaf {
    background: url('http://static.pexels.com/wp-content/uploads/2014/07/beach-coast-holiday-2190-825x550.jpg') no-repeat center center;
@@ -262,7 +290,7 @@ $gray-background: #717171;
    h1 {
      color: $white;
      text-align: center;
-     @include vertical-align;
+    //  @include vertical-align;
    }
  }
 
