@@ -51,7 +51,11 @@
 
         <!-- Left Nav Section -->
         <ul class="left">
-          <h2><a href="/">Deployment Diagrams</a></h2>
+          <% if user_signed_in? %>
+            <h2><a href="/timelines">Deployment Diagrams</a></h2>
+          <%else%>
+            <h2><a href="/">Deployment Diagrams</a></h2>
+          <%end%>
         </ul>
 
 
