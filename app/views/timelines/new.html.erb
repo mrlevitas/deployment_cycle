@@ -1,17 +1,3 @@
 <h2>Create New Timeline</h2>
 
-<%= form_for @timeline do |f| %>
-  <div class="review-form-list">
-    <%=f.label :title, "Title"%>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="review-form-list">
-    <%=f.label :description, "Description"%>
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="review-form-list no-bullet">
-    <%= f.submit class: "button tiny"%>
-  </div>
-<% end %>
+<%= render "timelines/form" %>

@@ -1,10 +1,11 @@
 class TimelinesController < ApplicationController
+  before_action :timeline, only: [:show, :edit, :update, :destroy]
+
   def index
     @timelines = Timeline.all
   end
 
   def show
-    @timeline = Timeline.find(params[:id])
   end
 
   def new
@@ -25,7 +26,35 @@ class TimelinesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @timeline.update(timeline_params)
+      flash[:notice] = "You have successfully updated your timeline"
+      redirect_to timeline_path(@timeline)
+    else
+      flash.now[:notice] = "Invalid input."
+      render 'reviews/edit'
+    end
+  end
+
+  def destroy
+    timeline
+    if @timeline.destroy
+      flash[:notice] = "You have deleted timeline successfully!"
+      redirect_to timelines_path
+    else
+      flash[:notice] = "You failed to delete timeline!"
+      render "timelines/show"
+    end
+  end
+
   private
+
+  def timeline
+    @timeline ||= Timeline.find(params[:id])
+  end
 
   def timeline_params
     params.require(:timeline).permit(:title, :description)
