@@ -1,10 +1,11 @@
 class TimelinesController < ApplicationController
+  before_action :timeline, only: [:show, :edit, :update, :destroy]
+
   def index
     @timelines = Timeline.all
   end
 
   def show
-    timeline
   end
 
   def new
@@ -26,12 +27,9 @@ class TimelinesController < ApplicationController
   end
 
   def edit
-    timeline
   end
 
   def update
-    timeline
-
     if @timeline.update(timeline_params)
       flash[:notice] = "You have successfully updated your timeline"
       redirect_to timeline_path(@timeline)
