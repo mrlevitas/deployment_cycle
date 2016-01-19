@@ -28,6 +28,6 @@ class TimelinesController < ApplicationController
   private
 
   def timeline_params
-      params.require(:timeline).permit(:title, :description)
-    end
+    params.require(:timeline).permit(:title, :description)
+  end
 end

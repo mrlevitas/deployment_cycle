@@ -29,7 +29,6 @@ feature 'sign out', %{
     sign_in_as(user)
     click_link "New Timeline"
 
-
     expect(page).to have_content("Create New Timeline")
     fill_in('Title', with: '')
     fill_in('Description', with: '')
