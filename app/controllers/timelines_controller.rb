@@ -41,6 +41,17 @@ class TimelinesController < ApplicationController
     end
   end
 
+  def destroy
+    timeline
+    if @timeline.destroy
+      flash[:notice] = "You have deleted timeline successfully!"
+      redirect_to timelines_path
+    else
+      flash[:notice] = "You failed to delete timeline!"
+      render "timelines/show"
+    end
+  end
+
   private
 
   def timeline

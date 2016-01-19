@@ -17,7 +17,7 @@ feature 'view timeline', %{
     click_link("Update")
 
     fill_in("Title", with: "Elon Musk's new Project")
-    fill_in("Description", with: "crazy but coo")
+    fill_in("D escription", with: "crazy but coo")
     click_button("Update Timeline")
 
     expect(page).to have_content("Elon Musk's new Project")
