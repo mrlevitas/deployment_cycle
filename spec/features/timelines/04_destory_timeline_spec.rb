@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature 'view timeline', %{
+feature 'destroy timeline', %{
   As an authenticated user
   I want to delete a timeline
   So that no one can see it

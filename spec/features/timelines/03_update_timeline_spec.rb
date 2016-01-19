@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature 'view timeline', %{
+feature 'update timeline', %{
   As an authenticated user
   I want to update a timeline’s information
   So that I can correct errors or provide new information
