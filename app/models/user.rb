@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   # mount_uploader :profile_photo, ProfilePhotoUploader
+  has_many :memberships
+  has_many :timelines, through: :memberships
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
