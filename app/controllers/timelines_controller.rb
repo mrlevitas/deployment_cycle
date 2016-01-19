@@ -4,7 +4,7 @@ class TimelinesController < ApplicationController
   end
 
   def show
-    @timeline = Timeline.find(params[:id])
+    timeline
   end
 
   def new
@@ -25,7 +25,27 @@ class TimelinesController < ApplicationController
     end
   end
 
+  def edit
+    timeline
+  end
+
+  def update
+    timeline
+
+    if @timeline.update(timeline_params)
+      flash[:notice] = "You have successfully updated your timeline"
+      redirect_to timeline_path(@timeline)
+    else
+      flash.now[:notice] = "Invalid input."
+      render 'reviews/edit'
+    end
+  end
+
   private
+
+  def timeline
+    @timeline ||= Timeline.find(params[:id])
+  end
 
   def timeline_params
     params.require(:timeline).permit(:title, :description)

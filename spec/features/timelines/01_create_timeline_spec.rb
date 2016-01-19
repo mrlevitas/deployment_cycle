@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'sign out', %{
+feature 'create timeline', %{
   As an authenticated user
   I want to add a timeline
   So that others can review it
