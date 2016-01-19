@@ -2,7 +2,8 @@ class TimelinesController < ApplicationController
   before_action :timeline, only: [:show, :edit, :update, :destroy]
 
   def index
-    @timelines = Timeline.all
+    @user = current_user
+    @timelines = @user.timelines
   end
 
   def show
