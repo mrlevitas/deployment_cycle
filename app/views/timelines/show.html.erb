@@ -9,6 +9,27 @@
   <%end%>
 </ul>
 
+<div class="button tiny update-butt">
+  <%= link_to 'Add Event', new_timeline_event_path(@timeline) %>
+</div>
+
+<div class="row text-center">
+  <ul>
+    <% @events.each do |event| %>
+      <li>
+        <h4><%= event.title%></h4>
+        <p class=""><%= event.description %></p>
+        <div class="button tiny update-butt">
+          <%= link_to 'update event', edit_timeline_event_path(@timeline, event) %>
+        </div>
+        <div class="button tiny update-butt">
+          <%= link_to 'delete event', timeline_event_path(@timeline, event), method: "delete" %>
+        </div>
+      </li>
+    <%end%>
+  </ul>
+</div>
+
 <div class="row text-center">
 
   <h1><%= @timeline.title%></h1>

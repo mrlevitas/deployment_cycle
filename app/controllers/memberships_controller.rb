@@ -5,9 +5,6 @@ class MembershipsController < ApplicationController
     @public_timelines = Timeline.where(personal: false)
   end
 
-  def show
-  end
-
   def new
     @timeline = Timeline.find(params[:timeline_id])
     @users = User.all

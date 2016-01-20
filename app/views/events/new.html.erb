@@ -1,0 +1,28 @@
+<h2>Create New Event</h2>
+
+<div class="small-8 small-centered column text-center">
+
+  <%= form_for [@timeline, @event] do |f| %>
+    <div class="review-form-list">
+      <%=f.label :title, "Title"%>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="review-form-list">
+      <%=f.label :description, "Description"%>
+      <%= f.text_field :description %>
+    </div>
+
+    <ul class="review-form-list">
+    <%= f.label :date_and_time, "Date and Time" %>
+    <%= f.datetime_select :date_and_time, :ampm => true, :minute_step => 15 %>
+  </ul>
+
+
+    <div class="review-form-list no-bullet">
+      <%= f.submit class: "button tiny"%>
+    </div>
+  <% end %>
+
+
+</div>
