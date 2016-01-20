@@ -46,14 +46,16 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    # timeline
-    # if @timeline.destroy
-    #   flash[:notice] = "You have deleted timeline successfully!"
-    #   redirect_to timelines_path
-    # else
-    #   flash[:notice] = "You failed to delete timeline!"
-    #   render "timelines/show"
-    # end
+    @timeline = Timeline.find(params[:timeline_id])
+    @event = @timeline.events.where(id: params[:id]).first
+  
+    if @event.destroy
+      flash[:notice] = "Event deleted"
+      redirect_to timeline_path(@timeline)
+    else
+      flash[:notice] = "You failed to delete event!"
+      render "timelines/show"
+    end
   end
 
   private
