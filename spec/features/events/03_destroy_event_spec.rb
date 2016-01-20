@@ -1,9 +1,9 @@
 require "rails_helper"
 
-feature 'update timeline', %{
+feature 'destroy event', %{
   As an authenticated user
-  I want to update a timeline’s information
-  So that I can correct errors or provide new information
+  I want to delete a timeline’s event
+  So that it no longer exists
   } do
 
   scenario "visitor edits park information and submits changes" do

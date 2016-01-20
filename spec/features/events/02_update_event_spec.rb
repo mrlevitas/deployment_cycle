@@ -1,12 +1,12 @@
 require "rails_helper"
 
-feature 'update timeline', %{
+feature 'update event', %{
   As an authenticated user
-  I want to update a timeline’s information
+  I want to update an event on a timeline
   So that I can correct errors or provide new information
   } do
 
-  scenario "visitor edits park information and submits changes" do
+  scenario "visitor edits event information and submits changes" do
     user = FactoryGirl.create(:user)
 
     timeline = FactoryGirl.create(:timeline)

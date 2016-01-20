@@ -10,7 +10,7 @@ feature 'update timeline', %{
 
   scenario "visitor edits park information and submits changes" do
     timeline = FactoryGirl.create(:timeline)
-    membership = FactoryGirl.create(:membership, user: user, timeline: timeline)
+    FactoryGirl.create(:membership, user: user, timeline: timeline)
 
     sign_in_as(user)
 

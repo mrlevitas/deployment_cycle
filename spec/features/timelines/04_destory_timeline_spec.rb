@@ -10,7 +10,7 @@ feature 'destroy timeline', %{
   let(:user) { FactoryGirl.create :user }
 
   scenario "user signs in, navigates to timeline show page and deletes it" do
-    membership = FactoryGirl.create(:membership, user: user, timeline: timeline)
+    FactoryGirl.create(:membership, user: user, timeline: timeline)
     sign_in_as(user)
     visit timeline_path(timeline)
     click_link("Delete")

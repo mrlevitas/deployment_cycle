@@ -1,17 +1,12 @@
 require 'rails_helper'
 
-feature 'create timeline', %{
+feature 'create event', %{
   As an authenticated user
-  I want to add a timeline
+  I want to add an event to an existing timeline
   So that others can review it
   } do
 
-  # ACCEPTANCE CRITERIA
-  # * if i am signed in, i should be directed to my dashboard
-  # * where I have the option of adding a new timeline
-  # * which has a title and description
-
-  scenario 'user creates a new timeline' do
+  scenario 'user creates a new event' do
     user = FactoryGirl.create(:user)
     timeline = FactoryGirl.create(:timeline, creator_id: user.id)
     FactoryGirl.create(:membership, user: user, timeline: timeline)
@@ -36,7 +31,7 @@ feature 'create timeline', %{
     expect(page).to have_content('Our product should be live by now!')
   end
 
-  scenario 'user tries to create a timeline without specifying title' do
+  scenario 'user tries to create a blank event' do
     user = FactoryGirl.create(:user)
     timeline = FactoryGirl.create(:timeline)
     FactoryGirl.create(:membership, user: user, timeline: timeline)
