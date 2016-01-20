@@ -19,8 +19,14 @@ class TimelinesController < ApplicationController
     # @timeline.user_id = current_user.id
 
     if @timeline.save
-      flash[:success] = "Timeline Created"
-      redirect_to timeline_path(@timeline)
+      membership = Membership.new(user: current_user, timeline: @timeline)
+      if membership.save
+        flash[:success] = "Timeline Created"
+        redirect_to timeline_path(@timeline)
+      else
+        flash[:notice] = @membership.errors.full_messages
+        render 'new'
+      end
     else
       flash[:notice] = @timeline.errors.full_messages
       render 'new'
