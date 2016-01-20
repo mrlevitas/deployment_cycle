@@ -6,10 +6,8 @@ class EventsController < ApplicationController
   end
 
   def new
-
     @event = Event.new
     @timeline = Timeline.find(params[:timeline_id])
-    # @users = User.all
   end
 
   def create
@@ -48,7 +46,7 @@ class EventsController < ApplicationController
   def destroy
     @timeline = Timeline.find(params[:timeline_id])
     @event = @timeline.events.where(id: params[:id]).first
-  
+
     if @event.destroy
       flash[:notice] = "Event deleted"
       redirect_to timeline_path(@timeline)
