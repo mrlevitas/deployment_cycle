@@ -1,0 +1,24 @@
+<h2>Users</h2>
+
+
+
+<ul class="small-10 small-centered column">
+
+  <% @users.each do |user|%>
+  <div class="park-index-list-item">
+    <div class="row" data-equalizer>
+      <li>
+        <div class="park-info small-4 column" data-equalizer-watch>
+          <p>
+            <%= link_to user.email, memberships_path(timeline_id: @timeline.id, user: user.id, add_user: true), method: "post" %>
+            <%= user.first_name %> <%= user.last_name %>
+          </p>
+        </div>
+      </li>
+    </div>
+  </div>
+
+<% end%>
+
+
+</ul>

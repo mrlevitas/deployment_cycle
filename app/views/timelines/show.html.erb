@@ -1,10 +1,32 @@
+
+<ul>
+  <% @shared_users.each do |usr| %>
+      <% if usr != current_user %>
+    <li>
+      Users shared with: <%= usr.email%>
+    </li>
+    <%end%>
+  <%end%>
+</ul>
+
 <div class="row text-center">
 
   <h1><%= @timeline.title%></h1>
   <h3 class=""><%= @timeline.description %></h3>
+  <p>
+    <% if @timeline.personal == true%>
+      private
+     <% else %>
+      public
+     <% end%>
+  </p>
 
   <div class="button tiny update-butt">
-    <%= link_to 'Join', memberships_path(timeline_id: @timeline.id), method: "post" %>
+    <%= link_to 'Share with Users', new_membership_path(timeline_id: @timeline.id) %>
+  </div>
+
+  <div class="button tiny update-butt">
+    <%= link_to 'Join', memberships_path(timeline_id: @timeline.id, add_user: false), method: "post" %>
   </div>
 
   <div class="button tiny update-butt">

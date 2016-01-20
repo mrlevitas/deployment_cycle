@@ -10,6 +10,7 @@ class TimelinesController < ApplicationController
   end
 
   def show
+    @shared_users = @timeline.users
   end
 
   def new
