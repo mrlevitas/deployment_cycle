@@ -1,9 +1,17 @@
-<h2>Deployment</h2>
+<h2>Deployment</h2>n
 <h3>Diagrams</h3>
 
 <h4>Timelines</h4>
 <a href="<%= new_timeline_path %>" >New Timeline</a>
 
+<a href="<%= memberships_path %>" >Join Timeline</a>
+
+<h2>Created Timelines</h2>
 <ul class="small-10 small-centered column">
   <%= render @timelines %>
+</ul>
+
+<h2>Joined Timelines</h2>
+<ul class="small-10 small-centered column">
+  <%= render @joined_timelines %>
 </ul>

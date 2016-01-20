@@ -9,6 +9,13 @@
     <%= f.text_field :description %>
   </div>
 
+  <ul class="review-form-list">
+  <%= f.label :personal, "Private" %>
+  <%= f.select(:personal, options_for_select([true, false])) %>
+  <p> (Private by default)</p>
+</ul>
+
+
   <div class="review-form-list no-bullet">
     <%= f.submit class: "button tiny"%>
   </div>

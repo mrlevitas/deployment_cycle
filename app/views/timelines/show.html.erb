@@ -4,6 +4,10 @@
   <h3 class=""><%= @timeline.description %></h3>
 
   <div class="button tiny update-butt">
+    <%= link_to 'Join', memberships_path(timeline_id: @timeline.id), method: "post" %>
+  </div>
+
+  <div class="button tiny update-butt">
     <%= link_to 'Update', edit_timeline_path(@timeline) %>
   </div>
 
