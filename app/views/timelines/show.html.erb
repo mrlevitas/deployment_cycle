@@ -9,6 +9,10 @@
   <%end%>
 </ul>
 
+<div class="button tiny update-butt">
+  <%= link_to 'Add Event', new_timeline_event_path(@timeline) %>
+</div>
+
 <div class="row text-center">
 
   <h1><%= @timeline.title%></h1>

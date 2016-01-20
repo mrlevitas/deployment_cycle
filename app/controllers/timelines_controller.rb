@@ -11,6 +11,7 @@ class TimelinesController < ApplicationController
 
   def show
     @shared_users = @timeline.users
+    # @events = @timeline.events
   end
 
   def new
