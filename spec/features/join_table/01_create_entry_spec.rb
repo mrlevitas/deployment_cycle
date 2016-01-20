@@ -1,15 +1,14 @@
 require 'rails_helper'
 
-feature 'when user goes to park show page, park reviews are listed', %{
+feature 'timeline index displays only associated timelines for user', %{
   As a user
-  I want to see park reviews
-  So that I can read or view reviews
+  I want to see my timelines
+  So that I can read or view only my information
   } do
   # ACCEPTANCE CRITERIA
-  # * If I go to a park's show page, I can view all of its reviews
+  # * If I go to the timeline index page, I can view all of my timelines
 
   scenario 'user views reviews on park show page' do
-    # timeline = FactoryGirl.create(:timeline)
     user = FactoryGirl.create(:user)
     timelines = FactoryGirl.create_list(:timeline, 3)
     memberships = []
@@ -17,7 +16,6 @@ feature 'when user goes to park show page, park reviews are listed', %{
     timelines.each do |tl|
       memberships << FactoryGirl.create(:membership, user: user, timeline: tl)
     end
-    # user.timelines = timelines
 
     sign_in_as(user)
 
