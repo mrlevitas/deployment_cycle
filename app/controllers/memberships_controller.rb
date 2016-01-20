@@ -9,18 +9,30 @@ class MembershipsController < ApplicationController
   end
 
   def new
-    @timeline = Timeline.new
+    @timeline = Timeline.find(params[:timeline_id])
+    @users = User.all
   end
 
   def create
-
     @timeline = Timeline.find(params[:timeline_id])
     @membership = @timeline.memberships.new
-    @membership.user = current_user
+
+    # user is adding another user to timeline
+    if params[:add_user] == "true"
+      user_to_add = User.find(params[:user])
+      @membership.user = user_to_add
+    else # user is joining a timeline
+      @membership.user = current_user
+    end
 
     if @membership.save
-      flash[:success] = "Timeline Joined"
-      redirect_to timelines_path
+      if params[:add_user] == "true"
+        flash[:success] = "#{user_to_add.first_name} #{user_to_add.last_name} added to #{@timeline.title}"
+        redirect_to timeline_path(@timeline)
+      else
+        flash[:success] = "Timeline Joined"
+        redirect_to timelines_path
+      end
     else
       flash[:notice] = @membership.errors.full_messages
       render memberships_path
