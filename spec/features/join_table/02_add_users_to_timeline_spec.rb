@@ -11,13 +11,6 @@ feature 'timeline index displays only associated timelines for user', %{
   scenario 'users 1 & 2 create their own timelines and index displays them' do
     user1 = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user)
-    # timelines = FactoryGirl.create_list(:timeline, 3)
-    # memberships = []
-    #
-    # timelines.each do |tl|
-    #   memberships << FactoryGirl.create(:membership, user: user, timeline: tl)
-    # end
-
     sign_in_as(user1)
 
     click_link "New Timeline"

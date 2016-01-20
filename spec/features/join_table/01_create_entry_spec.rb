@@ -10,7 +10,8 @@ feature 'timeline index displays only associated timelines for user', %{
 
   scenario 'user views reviews on park show page' do
     user = FactoryGirl.create(:user)
-    timelines = FactoryGirl.create_list(:timeline, 3)
+    timelines = FactoryGirl.create_list(:timeline, 3, creator_id: user.id)
+
     memberships = []
 
     timelines.each do |tl|

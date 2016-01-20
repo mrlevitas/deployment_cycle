@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :users, only: [:show]
   resources :timelines, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :memberships, only: [:index, :create]
 end

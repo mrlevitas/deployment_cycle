@@ -3,7 +3,10 @@ class TimelinesController < ApplicationController
 
   def index
     @user = current_user
-    @timelines = @user.timelines
+    # Timeline.where(creator: @user)
+    @timelines = @user.timelines.where(creator_id: @user.id)
+
+    @joined_timelines = @user.timelines.where.not(creator_id: @user.id)
   end
 
   def show
@@ -15,8 +18,8 @@ class TimelinesController < ApplicationController
 
   def create
     @timeline = Timeline.new(timeline_params)
-    # joins
-    # @timeline.user_id = current_user.id
+    # binding.pry
+    @timeline.creator_id = current_user.id
 
     if @timeline.save
       membership = Membership.new(user: current_user, timeline: @timeline)
@@ -64,6 +67,6 @@ class TimelinesController < ApplicationController
   end
 
   def timeline_params
-    params.require(:timeline).permit(:title, :description)
+    params.require(:timeline).permit(:title, :description, :personal)
   end
 end
