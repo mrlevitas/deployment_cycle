@@ -32,6 +32,8 @@ feature 'create timeline', %{
     click_button 'Create'
 
     expect(page).to have_content("Event added to Timeline")
+    expect(page).to have_content('Deploy')
+    expect(page).to have_content('Our product should be live by now!')
   end
 
   scenario 'user tries to create a timeline without specifying title' do

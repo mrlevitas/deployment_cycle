@@ -6,8 +6,9 @@ class EventsController < ApplicationController
   end
 
   def new
+
     @event = Event.new
-    # @timeline = Timeline.find(params[:timeline_id])
+    @timeline = Timeline.find(params[:timeline_id])
     # @users = User.all
   end
 
@@ -27,18 +28,21 @@ class EventsController < ApplicationController
   end
 
   def edit
-    binding.pry
+    @timeline = Timeline.find(params[:timeline_id])
+    @event = @timeline.events.where(id: params[:id]).first
   end
 
   def update
-    binding.pry
-    # if @timeline.update(timeline_params)
-    #   flash[:notice] = "You have successfully updated your timeline"
-    #   redirect_to timeline_path(@timeline)
-    # else
-    #   flash.now[:notice] = "Invalid input."
-    #   render 'reviews/edit'
-    # end
+    @timeline = Timeline.find(params[:timeline_id])
+    @event = @timeline.events.where(id: params[:id]).first
+
+    if @event.update(event_params)
+      flash[:notice] = "Event updated"
+      redirect_to timeline_path(@timeline)
+    else
+      flash.now[:notice] = @event.errors.full_messages
+      render 'timelines/show'
+    end
   end
 
   def destroy
