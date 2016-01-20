@@ -23,7 +23,7 @@ feature 'user sees public timelines and adds himself to it', %{
 
     expect(page).to have_content("Users")
 
-    click_link (user_to_add.email)
+    click_link user_to_add.email
 
     expect(page).to have_content("#{user_to_add.first_name} #{user_to_add.last_name} added to #{timeline.title}")
     expect(page).to have_content("Users shared with: #{user_to_add.email}")
