@@ -8,7 +8,7 @@ feature 'timeline index displays only associated timelines for user', %{
   # ACCEPTANCE CRITERIA
   # * If I go to the timeline index page, I can view all of my timelines
 
-  scenario 'user views reviews on park show page' do
+  scenario 'users 1 & 2 create their own timelines and index displays them' do
     user1 = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user)
     # timelines = FactoryGirl.create_list(:timeline, 3)
