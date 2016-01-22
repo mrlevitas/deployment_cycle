@@ -40,11 +40,12 @@ var TimeKnots = {
     var svg = d3.select(id).append('svg').attr("width", cfg.width).attr("height", cfg.height);
     //Calculate times in terms of timestamps
     if(!cfg.dateDimension){
-      var timestamps = events.map(function(d){return  d.value});//new Date(d.date).getTime()});
+      var timestamps = events.map(function(d){return d.value});//new Date(d.date).getTime()});
+      debugger;
       var maxValue = d3.max(timestamps);
       var minValue = d3.min(timestamps);
     }else{
-      var timestamps = events.map(function(d){return  Date.parse(d.date);});//new Date(d.date).getTime()});
+      var timestamps = events.map(function(d){return  Date.parse(d.date_and_time);});//new Date(d.date).getTime()});
       var maxValue = d3.max(timestamps);
       var minValue = d3.min(timestamps);
     }
@@ -66,7 +67,7 @@ var TimeKnots = {
       .attr("x1", function(d){
                       var ret;
                       if(cfg.horizontalLayout){
-                        var datum = (cfg.dateDimension)?new Date(d.date).getTime():d.value;
+                        var datum = (cfg.dateDimension)?new Date(d.date_and_time).getTime():d.value;
                         ret = Math.floor(step*(datum - minValue) + margin)
                       }
                       else{
@@ -80,7 +81,7 @@ var TimeKnots = {
                           return linePrevious.x1
                       }
                       if(cfg.horizontalLayout){
-                        var datum = (cfg.dateDimension)?new Date(d.date).getTime():d.value;
+                        var datum = (cfg.dateDimension)?new Date(d.date_and_time).getTime():d.value;
                         ret = Math.floor(step*(datum - minValue ))
                       }
                       return Math.floor(cfg.width/2)
@@ -91,7 +92,8 @@ var TimeKnots = {
                         ret = Math.floor(cfg.height/2)
                       }
                       else{
-                        var datum = (cfg.dateDimension)?new Date(d.date).getTime():d.value;
+                        var datum = (cfg.dateDimension)?new Date(
+                          _and_time).getTime():d.value;
                         ret = Math.floor(step*(datum - minValue)) + margin
                       }
                       linePrevious.y1 = ret
@@ -104,7 +106,7 @@ var TimeKnots = {
                       if(cfg.horizontalLayout){
                         return Math.floor(cfg.height/2)
                       }
-                      var datum = (cfg.dateDimension)?new Date(d.date).getTime():d.value;
+                      var datum = (cfg.dateDimension)?new Date(d.date_and_time).getTime():d.value;
                       return Math.floor(step*(datum - minValue))
                       })
     .style("stroke", function(d){
@@ -123,6 +125,7 @@ var TimeKnots = {
     svg.selectAll("circle")
     .data(events).enter()
     .append("circle")
+    .attr("id", function(d){ return d.id})
     .attr("class", "timeline-event")
     .attr("r", function(d){if(d.radius != undefined){return d.radius} return cfg.radius})
     .style("stroke", function(d){
@@ -144,12 +147,12 @@ var TimeKnots = {
         if(cfg.horizontalLayout){
           return Math.floor(cfg.height/2)
         }
-        var datum = (cfg.dateDimension)?new Date(d.date).getTime():d.value;
+        var datum = (cfg.dateDimension)?new Date(d.date_and_time).getTime():d.value;
         return Math.floor(step*(datum - minValue) + margin)
     })
     .attr("cx", function(d){
         if(cfg.horizontalLayout){
-          var datum = (cfg.dateDimension)?new Date(d.date).getTime():d.value;
+          var datum = (cfg.dateDimension)?new Date(d.date_and_time).getTime():d.value;
           var x=  Math.floor(step*(datum - minValue) + margin);
           return x;
         }
@@ -157,12 +160,12 @@ var TimeKnots = {
     }).on("mouseover", function(d){
       if(cfg.dateDimension){
         var format = d3.time.format(cfg.dateFormat);
-        var datetime = format(new Date(d.date));
-        var dateValue = (datetime != "")?(d.name +" <small>("+datetime+")</small>"):d.name;
+        var datetime = format(new Date(d.date_and_time));
+        var dateValue = (datetime != "")?(d.title +" <small>("+datetime+")</small>"):d.title;
       }else{
         var format = function(d){return d}; // TODO
         var datetime = d.value;
-        var dateValue = d.name +" <small>("+d.value+")</small>";
+        var dateValue = d.title +" <small>("+d.value+")</small>";
       }
       d3.select(this)
       .style("fill", function(d){if(d.color != undefined){return d.color} return cfg.color}).transition()
@@ -214,4 +217,3 @@ var TimeKnots = {
     .on("mouseout", function(){return tip.style("opacity", 0).style("top","0px").style("left","0px");});
   }
 }
-

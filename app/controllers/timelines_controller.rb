@@ -11,7 +11,7 @@ class TimelinesController < ApplicationController
 
   def show
     @shared_users = @timeline.users
-    @events = @timeline.events
+    gon.events = @timeline.events.as_json(except: ["timeline_id", "created_at", "updated_at"])
   end
 
   def new
