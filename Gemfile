@@ -9,7 +9,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails', '5.5.3.2'
+gem "devise"
 gem 'gon'
+gem "js-routes"
 
 group :development, :test do
   gem 'pry-rails'
@@ -20,11 +22,11 @@ group :development, :test do
   gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda'
-  gem 'database_cleaner'
   gem 'dotenv-rails'
-  gem "devise"
 end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end

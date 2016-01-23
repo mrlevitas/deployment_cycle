@@ -6,7 +6,7 @@ feature 'destroy event', %{
   So that it no longer exists
   } do
 
-  scenario "visitor edits park information and submits changes" do
+  scenario "visitor edits park information and submits changes", js: true do
     user = FactoryGirl.create(:user)
 
     timeline = FactoryGirl.create(:timeline)
@@ -16,7 +16,8 @@ feature 'destroy event', %{
 
     visit timeline_path(timeline)
 
-    expect(page).to have_content("#{event.title} #{event.description} update event delete event")
+    find_by_id(event.id).trigger('click')
+    expect(page).to have_content("#{event.title} #{event.description}")
     click_link("delete event")
 
     expect(page).to have_content("Event deleted")

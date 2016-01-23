@@ -6,7 +6,7 @@ feature 'create event', %{
   So that others can review it
   } do
 
-  scenario 'user creates a new event' do
+  scenario 'user creates a new event',js: true do
     user = FactoryGirl.create(:user)
     timeline = FactoryGirl.create(:timeline, creator_id: user.id)
     FactoryGirl.create(:membership, user: user, timeline: timeline)
@@ -27,6 +27,9 @@ feature 'create event', %{
     click_button 'Create'
 
     expect(page).to have_content("Event added to Timeline")
+
+    find_by_id(1).trigger('click')
+
     expect(page).to have_content('Deploy')
     expect(page).to have_content('Our product should be live by now!')
   end

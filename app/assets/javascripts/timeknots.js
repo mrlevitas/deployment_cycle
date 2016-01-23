@@ -41,7 +41,6 @@ var TimeKnots = {
     //Calculate times in terms of timestamps
     if(!cfg.dateDimension){
       var timestamps = events.map(function(d){return d.value});//new Date(d.date).getTime()});
-      debugger;
       var maxValue = d3.max(timestamps);
       var minValue = d3.min(timestamps);
     }else{

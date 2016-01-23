@@ -6,7 +6,7 @@ feature 'update event', %{
   So that I can correct errors or provide new information
   } do
 
-  scenario "visitor edits event information and submits changes" do
+  scenario "visitor edits event information and submits changes", js: true do
     user = FactoryGirl.create(:user)
 
     timeline = FactoryGirl.create(:timeline)
@@ -16,7 +16,9 @@ feature 'update event', %{
 
     visit timeline_path(timeline)
 
-    expect(page).to have_content("#{event.title} #{event.description} update")
+    find_by_id(event.id).trigger('click')
+
+    expect(page).to have_content("#{event.title} #{event.description}")
     click_link("update event")
 
     fill_in("Title", with: "Testing master branch")
@@ -30,6 +32,8 @@ feature 'update event', %{
     click_button("Update Event")
 
     expect(page).to have_content("Event updated")
+
+    find_by_id(event.id).trigger('click')
     expect(page).to have_content("Testing master branch")
     expect(page).to have_content("get commits and pull requests in!")
   end
