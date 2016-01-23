@@ -31,7 +31,7 @@ $(document).ready(function() {
       var break_line = document.createElement("br");
       title_header.appendChild(title_node);
       var datetime_format = d3.time.format("%m/%d/%Y %I:%M %p");
-      var datetime_string = datetime_format(new Date(date_and_time))
+      var datetime_string = datetime_format(new Date(date_and_time));
       var datetime_node = document.createTextNode(datetime_string);
 
       var element = document.getElementById("expand-event");
