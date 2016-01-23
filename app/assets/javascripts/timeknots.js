@@ -7,7 +7,7 @@ var TimeKnots = {
       lineWidth: 4,
       color: "#999",
       background: "#FFF",
-      dateFormat: "%m/%d/%Y %H:%M %p",
+      dateFormat: "%m/%d/%Y %I:%M %p",
       horizontalLayout: true,
       showLabels: false,
       labelFormat: "%m/%d/%Y",

@@ -9,47 +9,52 @@
   <%end%>
 </ul>
 
-<div class="button tiny update-butt">
-  <%= link_to 'Add Event', new_timeline_event_path(@timeline) %>
+
+<div class="row clearfix">
+  <div class="small-3 columns left">
+    <h1><%= @timeline.title%></h1>
+    <h3 class=""><%= @timeline.description %></h3>
+    <p>
+      <% if @timeline.personal == true%>
+        private
+       <% else %>
+        public
+       <% end%>
+    </p>
+  </div>
+  <div class="small-6 columns center">
+    <!-- <div id="timeline1" style="width:600px;"></div> -->
+    <div id="expand-event"></div>
+  </div>
+
+
+  <div class="small-3 columns right">
+
+    <div class="button tiny update-butt">
+      <%= link_to 'Share with Users', new_membership_path(timeline_id: @timeline.id) %>
+    </div>
+
+    <div class="button tiny update-butt">
+      <%= link_to 'Join', memberships_path(timeline_id: @timeline.id, add_user: false), method: "post" %>
+    </div>
+
+    <div class="button tiny update-butt">
+      <%= link_to 'Update', edit_timeline_path(@timeline) %>
+    </div>
+
+    <div class="button tiny update-butt">
+    <%= link_to 'Delete', timeline_path(@timeline), method: "delete", class: "button tiny update-butt" %>
+    </div>
+  </div>
 </div>
 
 
 
-<div class="row text-center">
-
-  <h1><%= @timeline.title%></h1>
-  <h3 class=""><%= @timeline.description %></h3>
-  <p>
-    <% if @timeline.personal == true%>
-      private
-     <% else %>
-      public
-     <% end%>
-  </p>
-
+<div class="row clearfix">
+  <div id="timelineNonDate" style="width:6 00px;"></div>
   <div class="button tiny update-butt">
-    <%= link_to 'Share with Users', new_membership_path(timeline_id: @timeline.id) %>
+    <%= link_to 'Add Event', new_timeline_event_path(@timeline) %>
   </div>
-
-  <div class="button tiny update-butt">
-    <%= link_to 'Join', memberships_path(timeline_id: @timeline.id, add_user: false), method: "post" %>
-  </div>
-
-  <div class="button tiny update-butt">
-    <%= link_to 'Update', edit_timeline_path(@timeline) %>
-  </div>
-
-  <div class="button tiny update-butt">
-  <%= link_to 'Delete', timeline_path(@timeline), method: "delete", class: "button tiny update-butt" %>
-  </div>
-</div>
-
-
-
-<div class="row text-center">
- <div id="timeline1" style="width:1000px;"></div>
-  <div id="expand-event"></div>
-  <div id="timelineNonDate" style="width:800px;"></div>
 </div>
 
 

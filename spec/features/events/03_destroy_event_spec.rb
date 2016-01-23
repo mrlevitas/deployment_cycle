@@ -17,7 +17,8 @@ feature 'destroy event', %{
     visit timeline_path(timeline)
 
     find_by_id(event.id).trigger('click')
-    expect(page).to have_content("#{event.title} #{event.description}")
+    expect(page).to have_content("#{event.title}")
+    expect(page).to have_content("#{event.description}")
     click_link("delete event")
 
     expect(page).to have_content("Event deleted")

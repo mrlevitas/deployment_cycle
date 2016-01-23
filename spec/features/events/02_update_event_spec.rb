@@ -18,7 +18,8 @@ feature 'update event', %{
 
     find_by_id(event.id).trigger('click')
 
-    expect(page).to have_content("#{event.title} #{event.description}")
+    expect(page).to have_content("#{event.title}")
+    expect(page).to have_content("#{event.description}")
     click_link("update event")
 
     fill_in("Title", with: "Testing master branch")
