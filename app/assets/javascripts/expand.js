@@ -30,6 +30,8 @@ $(document).ready(function() {
 
       var element = document.getElementById("expand-event");
 
+      var post_it = document.createElement("div");
+      post_it.setAttribute('class','post-it');
 
       //Create an input type dynamically.
       var update_button = document.createElement("a");
@@ -55,8 +57,9 @@ $(document).ready(function() {
 
       para.appendChild(update_button);
       para.appendChild(delete_button);
-      element.appendChild(title_header);
-      element.appendChild(para);
+      post_it.appendChild(title_header);
+      post_it.appendChild(para);
+      element.appendChild(post_it);
 
 
     });
