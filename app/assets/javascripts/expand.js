@@ -26,7 +26,7 @@ $(document).ready(function() {
       var para4 = document.createElement("p");
       var title_node = document.createTextNode(title);
       var desc_node = document.createTextNode(description);
-      var date_and_time = response.event.date_and_time
+      var date_and_time = response.event.date_and_time;
 
       var break_line = document.createElement("br");
       title_header.appendChild(title_node);
@@ -46,7 +46,6 @@ $(document).ready(function() {
       var update_text = document.createTextNode("update event");
       var delete_text = document.createTextNode("delete event");
 
-      debugger;
       update_button.setAttribute('class','button tiny update-butt');
       // update_button.setAttribute('name','update-button');
       update_button.setAttribute('href','/timelines/' + timeline_id + '/events/' + response.event.id + '/edit');
