@@ -50,11 +50,11 @@ $(document).ready(function() {
       delete_button.setAttribute('data-method','delete');
       // delete_button.setAttribute('class','tiny update-butt');
 
-      update_button.appendChild(update_text)
-      delete_button.appendChild(delete_text)
+      update_button.appendChild(update_text);
+      delete_button.appendChild(delete_text);
 
-      para.appendChild(update_button)
-      para.appendChild(delete_button)
+      para.appendChild(update_button);
+      para.appendChild(delete_button);
       element.appendChild(title_header);
       element.appendChild(para);
 
