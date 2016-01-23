@@ -13,22 +13,7 @@
   <%= link_to 'Add Event', new_timeline_event_path(@timeline) %>
 </div>
 
-<div class="row text-center">
-  <ul>
-    <% @events.each do |event| %>
-      <li>
-        <h4><%= event.title%></h4>
-        <p class=""><%= event.description %></p>
-        <div class="button tiny update-butt">
-          <%= link_to 'update event', edit_timeline_event_path(@timeline, event) %>
-        </div>
-        <div class="button tiny update-butt">
-          <%= link_to 'delete event', timeline_event_path(@timeline, event), method: "delete" %>
-        </div>
-      </li>
-    <%end%>
-  </ul>
-</div>
+
 
 <div class="row text-center">
 
@@ -58,3 +43,17 @@
   <%= link_to 'Delete', timeline_path(@timeline), method: "delete", class: "button tiny update-butt" %>
   </div>
 </div>
+
+<div class="row">
+ <div id="timeline1" style="width:500px;"></div>
+  <div id="expand-event"></div>
+  <div id="timelineNonDate" style="width:500px;"></div>
+</div>
+
+
+<script type="text/javascript">
+  var events_stuff = gon.events
+  //  [{ id: "1", "name": "Deploy asap", "description": "jaklsdjf", "date": "2012-09-28T17:16:00"}]
+
+  TimeKnots.draw("#timelineNonDate", events_stuff,  {dateFormat: "%B %Y", color: "#696", width:500, showLabels: true, labelFormat: "%Y"});
+</script>
