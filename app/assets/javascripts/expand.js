@@ -59,7 +59,7 @@ $(document).ready(function() {
       para.appendChild(delete_button);
       post_it.appendChild(title_header);
       post_it.appendChild(para);
-      element.appendChild(post_it)
+      element.appendChild(post_it);
 
 
     });
