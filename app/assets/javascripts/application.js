@@ -15,6 +15,5 @@
 //= require foundation
 //= require_tree .
 //= require d3.v2.min
-//= require js-routes
 
 $(function(){ $(document).foundation(); });
