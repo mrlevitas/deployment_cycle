@@ -24,12 +24,30 @@ $(document).ready(function() {
       var para2 = document.createElement("p");
       var para3 = document.createElement("p");
       var para4 = document.createElement("p");
+      var para5 = document.createElement("p");
+
       var title_node = document.createTextNode(title);
       var desc_node = document.createTextNode(description);
       var date_and_time = response.event.date_and_time;
+      var completion = response.event.completed;
+
+      if (completion == true) {
+        var complete_node = document.createTextNode("Completed");
+        para5.setAttribute("class", "green-completion");
+      }
+
+      if (completion == false) {
+        var complete_node = document.createTextNode("To Do");
+        para5.setAttribute("class", "red-completion");
+      }
+
+      para5.appendChild(complete_node);
 
       var break_line = document.createElement("br");
+
       title_header.appendChild(title_node);
+      title_header.appendChild(para5);
+  
       var datetime_format = d3.time.format("%m/%d/%Y %I:%M %p");
       var datetime_string = datetime_format(new Date(date_and_time));
       var datetime_node = document.createTextNode(datetime_string);
@@ -47,15 +65,11 @@ $(document).ready(function() {
       var delete_text = document.createTextNode("delete event");
 
       update_button.setAttribute('class','button tiny update-butt');
-      // update_button.setAttribute('name','update-button');
       update_button.setAttribute('href','/timelines/' + timeline_id + '/events/' + response.event.id + '/edit');
-      // update_button.setAttribute('class','tiny update-butt');
 
       delete_button.setAttribute('class','button tiny update-butt');
-      // delete_button.setAttribute('name','delete-button');
       delete_button.setAttribute('href','/timelines/' + timeline_id + '/events/' + response.event.id);
       delete_button.setAttribute('data-method','delete');
-      // delete_button.setAttribute('class','tiny update-butt');
 
 
       update_button.appendChild(update_text);
@@ -74,6 +88,7 @@ $(document).ready(function() {
       post_it.appendChild(para2);
       post_it.appendChild(para3);
       post_it.appendChild(para4);
+
       element.appendChild(post_it);
 
 

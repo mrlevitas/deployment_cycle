@@ -25,7 +25,7 @@ feature 'create event', %{
     select  "30", from:"event_date_and_time_5i"
 
     click_button 'Create'
-
+    
     expect(page).to have_content("Event added to Timeline")
 
     find_by_id(1).trigger('click')
