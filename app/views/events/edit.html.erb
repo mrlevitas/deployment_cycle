@@ -13,10 +13,13 @@
     </div>
 
     <ul class="review-form-list">
-    <%= f.label :date_and_time, "Date and Time" %>
-    <%= f.datetime_select :date_and_time, :ampm => true, :minute_step => 15 %>
-  </ul>
+      <%= f.label :date_and_time, "Date and Time" %>
+      <%= f.datetime_select :date_and_time, :ampm => true, :minute_step => 15 %>
+    </ul>
 
+    <div class="review-form-list">
+          <%=f.label :completed, "Completed?"%><%= f.check_box :completed %>
+    </div>
 
     <div class="review-form-list no-bullet">
       <%= f.submit class: "button tiny"%>

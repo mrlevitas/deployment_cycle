@@ -12,7 +12,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    # binding.pry
     @event.timeline_id = params[:timeline_id]
     @timeline = Timeline.find(params[:timeline_id])
 
@@ -63,6 +62,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :'date_and_time(1i)', :'date_and_time(2i)', :'date_and_time(3i)', :'date_and_time(4i)', :'date_and_time(5i)')
+    params.require(:event).permit(:title, :description, :completed, :'date_and_time(1i)', :'date_and_time(2i)', :'date_and_time(3i)', :'date_and_time(4i)', :'date_and_time(5i)')
   end
 end

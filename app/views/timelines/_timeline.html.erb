@@ -7,6 +7,40 @@
           <%= timeline.description %>
         </p>
       </div>
+      <div class="small-8 column" data-equalizer-watch>
+        <div class="row">
+          <div class="small-1 column"></div>
+            <p></p>
+          <div class="small-2 column">
+            Number of Events: <%= timeline.events.count%>
+          </div>
+          <div class="small-2 column">
+            Users Shared with: <%= timeline.users.count%>
+          </div>
+          <div class="small-2 column">
+            First Event:
+            <%if !timeline.events.empty? %>
+               <%= timeline.events.order('date_and_time').first.date_and_time.strftime("%B %d")%>
+            <%else%>
+              n/a
+            <%end%>
+          </div>
+          <div class="small-2 column">
+            Last Event:
+            <%if !timeline.events.empty? %>
+               <%= timeline.events.order('date_and_time').last.date_and_time.strftime("%B %d")%>
+            <%else%>
+              n/a
+            <%end%>
+
+          </div>
+          <div class="small-2 column">
+            Public?: <%= timeline.personal%>
+          </div>
+          <div class="small-1 column"></div>
+            <p></p>
+        </div>
+      </div>
     </li>
   </div>
 </div>
