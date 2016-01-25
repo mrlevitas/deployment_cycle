@@ -7,6 +7,7 @@ feature 'destroy event', %{
   } do
 
   scenario "visitor edits park information and submits changes", js: true do
+    skip("troubleshooting childAppend")
     user = FactoryGirl.create(:user)
 
     timeline = FactoryGirl.create(:timeline)
