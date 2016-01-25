@@ -1,19 +1,25 @@
 $(document).ready(function() {
   $(document).on('click', '.timeline-event', function(event){
 
+
+
     var request = $.ajax({
       method: "GET",
       url: "/api/v1/events/" + $(this).attr('id'),
     });
 
-    var myNode = document.getElementById("expand-event");
-    while (myNode.firstChild) {
-      myNode.removeChild(myNode.firstChild);
-    }
+
 
 
 
     request.success(function(response) {
+      var myNode = document.getElementById("expand-event");
+      var demo_flag =  myNode.getAttribute("name");
+
+
+      while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+      }
 
       var url = document.URL.split("/");
       var timeline_id = url[url.length - 1];
@@ -54,39 +60,40 @@ $(document).ready(function() {
 
       var update_button = document.createElement("a");
       var update_text = document.createTextNode("update event");
-
       update_button.setAttribute('class','button tiny update-butt');
-      update_button.setAttribute('href','/timelines/' + timeline_id + '/events/' + response.event.id + '/edit');
+
 
       var delete_button = document.createElement("a");
       var delete_text = document.createTextNode("delete event");
-
       delete_button.setAttribute('class','button tiny update-butt');
-      delete_button.setAttribute('href','/timelines/' + timeline_id + '/events/' + response.event.id);
-      delete_button.setAttribute('data-method','delete');
 
+      if (demo_flag == "welcome") {
+        update_button.setAttribute('href', '#')
+        delete_button.setAttribute('href', '#')
+      } else {
+          update_button.setAttribute('href','/timelines/' + timeline_id + '/events/' + response.event.id + '/edit');
+          delete_button.setAttribute('href','/timelines/' + timeline_id + '/events/' + response.event.id);
+          delete_button.setAttribute('data-method','delete');
+      }
 
       update_button.appendChild(update_text);
       delete_button.appendChild(delete_text);
 
       para1.appendChild(datetime_node);
-      // para.appendChild(break_line);
       para2.appendChild(update_button);
-      // para.appendChild(break_line)
       para3.appendChild(desc_node);
-      // para.appendChild(break_line);
       para4.appendChild(delete_button);
 
       var post_it = document.createElement("div");
       post_it.setAttribute('class','post-it');
 
       post_it.appendChild(title_header);
+      // post_it.appendChild(break_line);
       post_it.appendChild(para5);
       post_it.appendChild(para1);
       post_it.appendChild(para2);
       post_it.appendChild(para3);
       post_it.appendChild(para4);
-
 
       var element = document.getElementById("expand-event");
       element.appendChild(post_it);

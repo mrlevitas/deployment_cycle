@@ -8,9 +8,11 @@
       <div class="text-center">
         <br>
         <% if user_signed_in? %>
-          <a href="/timelines" class="button tiny">My Timelines</a>
+          <a href="/timelines" class="button hollow">My Timelines</a>
         <% else %>
-          <a href="<%= new_user_registration_path%>" class="button tiny">Join</a>
+          <div>
+            <%= link_to "Demo", welcome_path(1), class: "button hollow" %><br>
+          </div>
         <% end %>
       </div>
     </div>
@@ -37,23 +39,35 @@
 
 <div class="middle-section pad-vert">
 
-  <div class="row">
-    <div class="columns small-4">
-      <div class="panel box-background">
+  <div class="row" data-equalizer>
+    <div class="columns small-4 full-height" data-equalizer-watch>
+      <div class="panel box-background sidebar">
 
         <p class="">View Events on Your Timeline</p>
 
+        <img class="timeline-img" src="https://dl.dropboxusercontent.com/u/18396109/timeline_ex.png">
       </div>
     </div>
 
-    <div class="columns small-4">
-      <div class="panel box-background">
-      <p class="">Share and Join other user's Timelines</p>
+    <div class="columns small-4 full-height" data-equalizer-watch>
+      <div class="panel box-background sidebar">
+        <p class="">Share and Join other user's Timelines</p>
+        <div class="row">
+          <br>
+          <br>
+          <div class="small-6 columns">
+            <img class="timeline-img" src="https://dl.dropboxusercontent.com/u/18396109/share_with_users.png">
+          </div>
+
+          <div class="small-6 columns">
+            <img class="timeline-img" src="https://dl.dropboxusercontent.com/u/18396109/join_timeline.png">
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="columns small-4">
-      <div class="panel box-background">
+    <div class="columns small-4 full-height" data-equalizer-watch>
+      <div class="panel box-background sidebar">
       <p class="">Filter Events & Notes via Team Tags</p>
       </div>
     </div>
@@ -63,8 +77,6 @@
 
 <div class="row text-center">
   <p>
-    <div>
-      <%= link_to "Demo", welcome_path(1), class: "button tiny" %><br>
-    </div>
+    <a href="<%= new_user_registration_path%>" class="button hollow">Join</a>
   </p>
 </div>
