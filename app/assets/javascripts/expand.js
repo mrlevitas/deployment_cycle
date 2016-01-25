@@ -43,13 +43,11 @@ $(document).ready(function() {
         para5.setAttribute("class", "red-completion");
       }
 
-      para5.innerHTML(complete_node);
-
-      // var break_line = document.createElement("br");
+      // para5.appendChild(complete_node);
 
       var title_node = document.createTextNode(title);
-      title_header.innerHTML(title_node);
-      title_header.innerHTML(para5);
+      // title_header.appendChild(title_node);
+      // title_header.appendChild(para5);
 
       var datetime_format = d3.time.format("%m/%d/%Y %I:%M %p");
       var datetime_string = datetime_format(new Date(date_and_time));
@@ -69,25 +67,25 @@ $(document).ready(function() {
       delete_button.setAttribute('data-method','delete');
 
 
-      update_button.appendChild(update_text);
-      delete_button.appendChild(delete_text);
+      // update_button.appendChild(update_text);
+      // delete_button.appendChild(delete_text);
 
-      para1.appendChild(datetime_node);
+      // para1.appendChild(datetime_node);
       // para.appendChild(break_line);
-      para2.appendChild(update_button);
+      // para2.appendChild(update_button);
       // para.appendChild(break_line)
       para3.appendChild(desc_node);
       // para.appendChild(break_line);
-      para4.appendChild(delete_button);
+      // para4.appendChild(delete_button);
 
       var post_it = document.createElement("div");
       post_it.setAttribute('class','post-it');
 
       post_it.appendChild(title_header);
-      post_it.appendChild(para1);
-      post_it.appendChild(para2);
+      // post_it.appendChild(para1);
+      // post_it.appendChild(para2);
       post_it.appendChild(para3);
-      post_it.appendChild(para4);
+      // post_it.appendChild(para4);
 
       var element = document.getElementById("expand-event");
       element.appendChild(post_it);
