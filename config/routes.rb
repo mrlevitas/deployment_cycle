@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  resources :welcome, only: [:index, :show]
+
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :users, only: [:show]
   resources :timelines, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
