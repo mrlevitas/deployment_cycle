@@ -8,9 +8,11 @@
       <div class="text-center">
         <br>
         <% if user_signed_in? %>
-          <a href="/timelines" class="button tiny">My Timelines</a>
+          <a href="/timelines" class="button hollow">My Timelines</a>
         <% else %>
-          <a href="<%= new_user_registration_path%>" class="button tiny">Join</a>
+          <div>
+            <%= link_to "Demo", welcome_path(1), class: "button hollow" %><br>
+          </div>
         <% end %>
       </div>
     </div>
@@ -75,8 +77,6 @@
 
 <div class="row text-center">
   <p>
-    <div>
-      <%= link_to "Demo", welcome_path(1), class: "button tiny" %><br>
-    </div>
+    <a href="<%= new_user_registration_path%>" class="button hollow">Join</a>
   </p>
 </div>
