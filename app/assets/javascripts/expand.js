@@ -32,7 +32,6 @@ $(document).ready(function() {
 
       var desc_node = document.createTextNode(description);
 
-
       if (completion == true) {
         var complete_node = document.createTextNode("Completed");
         para5.setAttribute("class", "green-completion");
@@ -43,11 +42,11 @@ $(document).ready(function() {
         para5.setAttribute("class", "red-completion");
       }
 
-      //para5.appendChild(complete_node);
+      para5.appendChild(complete_node);
 
       var title_node = document.createTextNode(title);
       title_header.appendChild(title_node);
-      // title_header.appendChild(para5);
+      title_header.appendChild(para5);
 
       var datetime_format = d3.time.format("%m/%d/%Y %I:%M %p");
       var datetime_string = datetime_format(new Date(date_and_time));
@@ -86,6 +85,7 @@ $(document).ready(function() {
       post_it.appendChild(para2);
       post_it.appendChild(para3);
       post_it.appendChild(para4);
+
 
       var element = document.getElementById("expand-event");
       element.appendChild(post_it);
