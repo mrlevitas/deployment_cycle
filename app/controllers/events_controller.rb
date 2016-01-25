@@ -32,8 +32,7 @@ class EventsController < ApplicationController
   def update
     @timeline = Timeline.find(params[:timeline_id])
     @event = @timeline.events.where(id: params[:id]).first
-
-    binding.pry
+    
     if @event.update(event_params)
       flash[:notice] = "Event updated"
       redirect_to timeline_path(@timeline)

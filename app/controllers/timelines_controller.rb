@@ -20,7 +20,6 @@ class TimelinesController < ApplicationController
 
   def create
     @timeline = Timeline.new(timeline_params)
-    # binding.pry
     @timeline.creator_id = current_user.id
 
     if @timeline.save
