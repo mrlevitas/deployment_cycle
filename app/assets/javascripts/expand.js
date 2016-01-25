@@ -94,6 +94,7 @@ $(document).ready(function() {
 
     request.fail(function(response) {
       flash_string = "Unable to display Event";
+      var flash_message = $('#flash-div');
       flash_message.text(flash_string);
     });
 
