@@ -125,11 +125,31 @@
 
 
 
+.full-height {
+  display: table;
+}
 
+
+.sidebar {
+  display: table-cell;
+}
 .image-container {
   display: inline-block;
   vertical-align: middle;
   width: 50%;
+}
+
+.image-container-share {
+  display: inline-block;
+  width: 50%;
+  height: 25%;
+}
+
+.image-container-share-right {
+  display: inline-block;
+  text-align: right;
+  width: 50%;
+  height: 25%;
 }
 
 .timeline-image {

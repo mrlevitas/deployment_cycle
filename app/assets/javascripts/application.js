@@ -16,4 +16,6 @@
 //= require_tree .
 //= require d3.v2.min
 
+$(".full-height").height($(".main").parent().height());
+
 $(function(){ $(document).foundation(); });
