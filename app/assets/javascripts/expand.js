@@ -31,22 +31,22 @@ $(document).ready(function() {
       var para5 = document.createElement("p");
 
       var desc_node = document.createTextNode(description);
+      var complete_node = null;
 
       if (completion == true) {
-        var complete_node = document.createTextNode("Completed");
+        complete_node = document.createTextNode("Completed");
         para5.setAttribute("class", "green-completion");
+        para5.appendChild(complete_node);
       }
 
       if (completion == false) {
-        var complete_node = document.createTextNode("To Do");
+        complete_node = document.createTextNode("To Do");
         para5.setAttribute("class", "red-completion");
+        para5.appendChild(complete_node);
       }
-
-      para5.appendChild(complete_node);
 
       var title_node = document.createTextNode(title);
       title_header.appendChild(title_node);
-      // title_header.appendChild(para5);
 
       var datetime_format = d3.time.format("%m/%d/%Y %I:%M %p");
       var datetime_string = datetime_format(new Date(date_and_time));
@@ -81,6 +81,7 @@ $(document).ready(function() {
       post_it.setAttribute('class','post-it');
 
       post_it.appendChild(title_header);
+      post_it.appendChild(para5);
       post_it.appendChild(para1);
       post_it.appendChild(para2);
       post_it.appendChild(para3);
