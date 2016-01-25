@@ -46,7 +46,7 @@ $(document).ready(function() {
       //para5.appendChild(complete_node);
 
       var title_node = document.createTextNode(title);
-      // title_header.appendChild(title_node);
+      title_header.appendChild(title_node);
       // title_header.appendChild(para5);
 
       var datetime_format = d3.time.format("%m/%d/%Y %I:%M %p");
