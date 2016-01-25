@@ -43,7 +43,7 @@ $(document).ready(function() {
         para5.setAttribute("class", "red-completion");
       }
 
-      // para5.appendChild(complete_node);
+      //para5.appendChild(complete_node);
 
       var title_node = document.createTextNode(title);
       // title_header.appendChild(title_node);
@@ -70,7 +70,7 @@ $(document).ready(function() {
       update_button.appendChild(update_text);
       delete_button.appendChild(delete_text);
 
-      // para1.appendChild(datetime_node);
+      para1.appendChild(datetime_node);
       // para.appendChild(break_line);
       para2.appendChild(update_button);
       // para.appendChild(break_line)
@@ -82,7 +82,7 @@ $(document).ready(function() {
       post_it.setAttribute('class','post-it');
 
       post_it.appendChild(title_header);
-      // post_it.appendChild(para1);
+      post_it.appendChild(para1);
       post_it.appendChild(para2);
       post_it.appendChild(para3);
       post_it.appendChild(para4);
