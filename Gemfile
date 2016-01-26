@@ -13,6 +13,8 @@ gem "devise"
 gem 'gon'
 gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
