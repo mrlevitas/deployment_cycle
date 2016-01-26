@@ -15,6 +15,7 @@
 //= require foundation
 //= require_tree .
 //= require d3.v2.min
+//= require underscore
 
 $(".full-height").height($(".main").parent().height());
 

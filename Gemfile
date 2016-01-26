@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails', '5.5.3.2'
 gem "devise"
 gem 'gon'
+gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
 
 group :development, :test do
   gem 'pry-rails'

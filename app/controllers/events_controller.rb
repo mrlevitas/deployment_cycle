@@ -32,7 +32,7 @@ class EventsController < ApplicationController
   def update
     @timeline = Timeline.find(params[:timeline_id])
     @event = @timeline.events.where(id: params[:id]).first
-    
+
     if @event.update(event_params)
       flash[:notice] = "Event updated"
       redirect_to timeline_path(@timeline)
@@ -62,6 +62,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :completed, :'date_and_time(1i)', :'date_and_time(2i)', :'date_and_time(3i)', :'date_and_time(4i)', :'date_and_time(5i)')
+    params.require(:event).permit(:title, :description, :completed, :team_tag, :'date_and_time(1i)', :'date_and_time(2i)', :'date_and_time(3i)', :'date_and_time(4i)', :'date_and_time(5i)')
   end
 end
