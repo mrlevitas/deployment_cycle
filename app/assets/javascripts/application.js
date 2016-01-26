@@ -16,6 +16,11 @@
 //= require_tree .
 //= require d3.v2.min
 //= require underscore
+$(document).foundation({
+   equalizer: {
+       equalize_on_stack: true
+   }
+});
 
 $(".full-height").height($(".main").parent().height());
 

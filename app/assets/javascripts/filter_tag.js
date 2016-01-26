@@ -1,8 +1,8 @@
 function filterTag(control) {
-    var current = $(this)
-    var tag = control.value
-    var events = gon.events
-    var tlColor = "#F2C66D"
+    var current = $(this);
+    var tag = control.value;
+    var events = gon.events;
+    var tlColor = "#F2C66D";
 
     if (tag == "none"){
       var filtered_events = events;

@@ -8,23 +8,33 @@ class WelcomeController < ApplicationController
     # binding.pry
     @timeline = Timeline.create(title: "Your Awesome Project", description: "Your Project's description", creator_id: @user.id)
     event_arr = []
-    5.times do
-      event_arr << Event.new(timeline_id: @timeline.id)
-    end
+
+    event_arr << Event.new(timeline_id: @timeline.id, team_tag: "dev")
+    event_arr << Event.new(timeline_id: @timeline.id, team_tag: "release")
+    event_arr << Event.new(timeline_id: @timeline.id, team_tag: "test")
+    event_arr << Event.new(timeline_id: @timeline.id, team_tag: "dev")
+    event_arr << Event.new(timeline_id: @timeline.id, team_tag: "dev")
+    event_arr << Event.new(timeline_id: @timeline.id, team_tag: "release")
 
     event_arr[0].title = "1st Event"
     event_arr[0].date_and_time = Time.now
     event_arr[0].description = "this is your first completed event!"
     event_arr[0].completed = true
 
-    event_arr[4].title = "Last Event"
-    event_arr[4].description = "this is your Last event to do!"
-    event_arr[4].date_and_time = Time.now + 1.weeks
+    event_arr[4].title = "Dev Day!"
+    event_arr[4].description = "do your thing, man!"
+    event_arr[4].date_and_time = Time.now + 4.days
+    event_arr[4].completed = false
 
+    event_arr[5].title = "Last Event"
+    event_arr[5].description = "this is your Last event to do!"
+    event_arr[5].date_and_time = Time.now + 1.weeks
+    event_arr[5].completed = false
 
     event_arr[1].title = "Talk to Client"
     event_arr[1].description = "Get desired functionality"
     event_arr[1].date_and_time = Time.now + 2.days
+    event_arr[1].completed = true
 
     event_arr[2].title = "Get User Stories Written"
     event_arr[2].description = "Turn desired functionality into user stories"
