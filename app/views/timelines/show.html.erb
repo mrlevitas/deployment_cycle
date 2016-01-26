@@ -49,6 +49,10 @@
     <div>
     <%= link_to 'Delete', timeline_path(@timeline), method: "delete", class: "button tiny update-butt" %>
     </div>
+    <div>
+      <%= select_tag 'team_tag', options_for_select([["none", "none"], ["Dev", "dev"], ["Test", "test"], ["Q/A", "qa"], ["Release", "release"], ["R&D", "rd"]]), onchange: "filterTag(this)"  %>
+    </div>
+
   </div>
 </div>
 

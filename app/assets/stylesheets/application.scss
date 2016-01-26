@@ -30,6 +30,56 @@
  //   -ms-transform: translateY(-50%);
  //   transform: translateY(-50%);
  // }
+ .dev-tag{
+  color: black;
+  width: 30px;
+  background-color: #A80874;
+  margin: 5px 5px 5px 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+ }
+
+ .test-tag{
+  color: black;
+  width: 32px;
+  background-color: #B7FDFE;
+  margin: 5px 5px 5px 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+ }
+
+ .qa-tag{
+  color: black;
+  width: 30px;
+  background-color: #2B9720;
+  margin: 5px 5px 5px 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+ }
+
+ .release-tag{
+  color: black;
+  width: 55px;
+  background-color: #AB3A1A;
+  margin: 5px 5px 5px 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+ }
+
+ .rd-tag{
+  color: black;
+  width: 35px;
+  background-color: #779B71;
+  margin: 5px 5px 5px 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+ }
+
 
  .green-completion{
   color: white;

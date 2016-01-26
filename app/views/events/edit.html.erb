@@ -12,16 +12,22 @@
       <%= f.text_field :description %>
     </div>
 
-    <ul class="review-form-list">
+    <div class="review-form-list">
       <%= f.label :date_and_time, "Date and Time" %>
       <%= f.datetime_select :date_and_time, :ampm => true, :minute_step => 15 %>
-    </ul>
+    </div>
 
     <div class="review-form-list">
-          <%=f.label :completed, "Completed?"%>
-          <%= f.check_box :completed, {}, true, false %>
+      <%= f.label :team_tag, "Team Tag" %>
+      <%= f.select :team_tag, options_for_select([["none", "none"], ["Dev", "dev"], ["Test", "test"], ["Q/A", "qa"], ["Release", "release"], ["R&D", "rd"]]) %>
     </div>
-    
+
+    <div class="review-form-list">
+      <%=f.label :completed, "Completed?"%>
+      <%= f.check_box :completed, {}, true, false %>
+    </div>
+
+
     <div class="review-form-list no-bullet">
       <%= f.submit class: "button tiny"%>
     </div>

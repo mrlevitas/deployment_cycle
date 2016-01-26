@@ -1,21 +1,14 @@
 $(document).ready(function() {
   $(document).on('click', '.timeline-event', function(event){
-
-
-
+    
     var request = $.ajax({
       method: "GET",
       url: "/api/v1/events/" + $(this).attr('id'),
     });
 
-
-
-
-
     request.success(function(response) {
       var myNode = document.getElementById("expand-event");
       var demo_flag =  myNode.getAttribute("name");
-
 
       while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
@@ -35,6 +28,36 @@ $(document).ready(function() {
       var para3 = document.createElement("p");
       var para4 = document.createElement("p");
       var para5 = document.createElement("p");
+      var para6 = document.createElement("p");
+
+      var tag = response.event.team_tag;
+      var tagString = "";
+
+      var cssClass = "dev-tag";
+
+      if (tag == "dev") {
+        cssClass = "dev-tag";
+        tagString = "Dev";
+      } else if (tag == "test") {
+        cssClass = "test-tag";
+        tagString = "Test";
+      } else if (tag == "qa") {
+        cssClass = "qa-tag";
+        tagString = "Q/A";
+      } else if (tag == "release") {
+        cssClass = "release-tag";
+        tagString = "Release";
+      } else if (tag == "rd") {
+        cssClass = "rd-tag";
+        tagString = "R&D";
+      }
+
+      if (tag != "none") {
+        var team_node = document.createTextNode(tagString);
+        para6.appendChild(team_node)
+        para6.setAttribute("class", cssClass);
+      }
+
 
       var desc_node = document.createTextNode(description);
       var complete_node = null;
@@ -90,6 +113,7 @@ $(document).ready(function() {
       post_it.appendChild(title_header);
       // post_it.appendChild(break_line);
       post_it.appendChild(para5);
+      post_it.appendChild(para6);
       post_it.appendChild(para1);
       post_it.appendChild(para2);
       post_it.appendChild(para3);
