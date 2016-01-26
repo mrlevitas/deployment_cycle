@@ -1,5 +1,4 @@
 function filterTag(control) {
-    var current = $(this);
     var tag = control.value;
     var events = gon.events;
     var tlColor = "#F2C66D";
