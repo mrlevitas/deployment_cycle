@@ -30,6 +30,20 @@
  //   -ms-transform: translateY(-50%);
  //   transform: translateY(-50%);
  // }
+
+.jumbotran {
+    position: relative;
+    background-color: $pastel-grey;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+
+    border-radius: 25px;
+    border: 2px solid $pastel-orange;
+    padding: 20px;
+}
+
  .dev-tag{
   color: black;
   width: 30px;
@@ -107,10 +121,15 @@
  font-size:15px;
  color: #000;
  width:400px;
+ // height: 22rem;
 
  box-shadow: 0px 4px 6px #333;
  -moz-box-shadow: 0px 4px 6px #333;
  -webkit-box-shadow: 0px 4px 6px #333;
+
+  p {
+    word-wrap: break-word;
+  }
 
  }
 
