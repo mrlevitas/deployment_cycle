@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $(document).on('click', '.timeline-event', function(event){
-    
+
     var request = $.ajax({
       method: "GET",
       url: "/api/v1/events/" + $(this).attr('id'),
@@ -120,7 +120,9 @@ $(document).ready(function() {
       post_it.appendChild(para4);
 
       var element = document.getElementById("expand-event");
+      $(element).hide();
       element.appendChild(post_it);
+      $(element).fadeIn();
     });
 
     request.fail(function(response) {

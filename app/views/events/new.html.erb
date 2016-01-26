@@ -1,32 +1,7 @@
 <h2>Create New Event</h2>
 
-<div class="small-8 small-centered column text-center">
-
-  <%= form_for [@timeline, @event] do |f| %>
-    <div class="review-form-list">
-      <%=f.label :title, "Title"%>
-      <%= f.text_field :title %>
-    </div>
-
-    <div class="review-form-list">
-      <%=f.label :description, "Description"%>
-      <%= f.text_field :description %>
-    </div>
-
-    <div class="review-form-list">
-      <%= f.label :date_and_time, "Date and Time" %>
-      <%= f.datetime_select :date_and_time, :ampm => true, :minute_step => 15 %>
-    </div>
-
-    <div class="review-form-list">
-      <%= f.label :team_tag, "Team Tag" %>
-      <%= f.select :team_tag, options_for_select([["none", "none"], ["Dev", "dev"], ["Test", "test"], ["Q/A", "qa"], ["Release", "release"], ["R&D", "rd"]]) %>
-    </div>
-
-    <div class="review-form-list no-bullet">
-      <%= f.submit class: "button tiny"%>
-    </div>
-  <% end %>
-
-
+<div class="row">
+  <div class="jumbotran">
+  <%= render "events/form" %>
+  </div>
 </div>
