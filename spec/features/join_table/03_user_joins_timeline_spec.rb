@@ -30,8 +30,8 @@ feature 'user sees public timelines and adds himself to it', %{
 
     click_link (timeline1.title)
 
-    click_link "Join"
+    click_link "Join Timeline"
     expect(page).to have_content("Timeline Joined")
-    expect(page).to have_content("Joined Timelines #{timeline1.title}")
+    expect(page).to have_content("#{timeline1.title}")
   end
 end
