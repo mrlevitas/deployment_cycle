@@ -1,17 +1,17 @@
 <div class="row clearfix">
   <div class="right">
-    Timeline Options:
-    <%= link_to 'New Timeline', new_timeline_path, class: "button tiny update-butt" %>
-    <%= link_to 'Join Timeline', memberships_path, class: "button tiny update-butt" %>
+
   </div>
 </div>
 
 <h2>Created Timelines</h2>
 <ul class="small-10 small-centered column">
+  <%= link_to 'New Timeline', new_timeline_path, class: "button tiny update-butt" %>
   <%= render @timelines %>
 </ul>
 
 <h2>Joined Timelines</h2>
 <ul class="small-10 small-centered column">
+  <%= link_to 'Join Timeline', memberships_path, class: "button tiny update-butt" %>
   <%= render @joined_timelines %>
 </ul>

@@ -2,7 +2,7 @@
 @import "foundation_and_overrides";
 @import url(https://fonts.googleapis.com/css?family=Mako);
 @import url(https://fonts.googleapis.com/css?family=Lora);
-
+@import url(https://fonts.googleapis.com/css?family=Merriweather);
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -29,6 +29,13 @@
  //   -webkit-transform: translateY(-50%);
  //   -ms-transform: translateY(-50%);
  //   transform: translateY(-50%);
+ // }
+ //
+ // .background-cold {
+ //   background: url("https://dl.dropboxusercontent.com/u/18396109/e309f60b67ee939c43a87213c578bb5b.jpg") no-repeat center center;
+ //
+ //
+ //   background-size: cover;
  // }
 
 .jumbotran {
@@ -64,6 +71,24 @@
     vertical-align: middle;
     width: 50%;
    //  @include vertical-align;
+ }
+
+ .ghost-button-thick-border {
+   display: inline-block;
+   width: 200px;
+   padding: 8px;
+   font-weight: bold;
+   color: #fff;
+   border: 1px solid $mustard-yellow;
+   text-align: center;
+   outline: none;
+   text-decoration: none;
+  background-color: transparent;
+ }
+ .ghost-button-thick-border:hover,
+ .ghost-button-thick-border:active {
+   background-color: $mustard-yellow;
+   color: #000;
  }
 
  .time-butt {
@@ -165,7 +190,7 @@
  }
 
  .post-it-placeholder {
- background: $dark-grey;
+ background: white;
  padding:15px;
  font-size:15px;
  width:400px;
@@ -178,7 +203,12 @@
 }
 
 .box-background {
-  background-color: $pastel-grey;
+  background-color: $navy-blue;
+  border: 2px solid $navy-blue;
+
+  p {
+    color: white;
+  }
 }
 
 // .logo-right{
@@ -215,14 +245,18 @@
 //   height: 25%;
 // }
 
+h2.left-pad-me{
+    padding-left: 15 px;
+}
+
 .timeline-image {
   width:100%;
   max-height:100%;
   object-fit: contain;
 }
 
- $font-stack: 'Mako', sans-serif;
-
+ // $font-stack: 'Mako', sans-serif;
+$font-stack: 'Merriweather', serif;
  //colors
  // $primary-color :
  // $secondary-color
@@ -238,12 +272,12 @@
  $primary-background-color: $pastel-orange; //  pastel-orange
  $secondary-background-color: $light-green; // light-green
  // in overrides
- $primary-color: #ffffff; //  pastel-red
+ $primary-color: #d3d3d3;
  $secondary-color: $navy-blue; //dark-green
 
  // Styles
  body {
-   background-color: $dark-grey;
+   background-color: $primary-color;
    font-family: $font-stack;
    font-weight: normal;
  }
@@ -347,7 +381,7 @@
  }
 
  .top-bar {
-   height: 3rem;
+   height: auto;
  }
 
  .new {
